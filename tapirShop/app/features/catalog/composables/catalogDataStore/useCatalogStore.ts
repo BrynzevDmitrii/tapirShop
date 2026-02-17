@@ -10,8 +10,8 @@ export const useCatalogStore = defineStore('catalog-store', () => {
         try {
             const response = await fetch(`https://test-task-api.tapir.ws/products?page=${countPage.value}&limit=10`);
             const newData = await response.json() as CatalogData;
-            if (newData.totalPages < countPage.value) {
-                throw new Error('No more data');
+            if (newData.currentPage > newData.totalPages) {
+                return;
             }
             if (countPage.value === 1) {
                 listProducts.value = newData.products;
@@ -19,25 +19,31 @@ export const useCatalogStore = defineStore('catalog-store', () => {
             }
             const products = newData.products;
             listProducts.value = [...listProducts.value, ...products];
+
         } catch (error) {
             console.log(error);
         }
     }
 
-    const setNextPage = () => {
+    const setNextPage = async () => {
         countPage.value++;
-        setCatalogData();
-        getCatalogData;
+        await setCatalogData();
     }
+
     const getCatalogData = computed(() => {
         return listProducts.value
     });
+
+    const getPage = computed(() => {
+        return countPage.value;
+    })
 
     return {
         listProducts,
         setCatalogData,
         getCatalogData,
-        setNextPage
+        setNextPage,
+        getPage,
     }
 
 });

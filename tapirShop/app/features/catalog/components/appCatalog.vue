@@ -23,15 +23,16 @@ import { ButtonTag, ButtonType, ButtonVariant } from '~/shared/ui/button/type';
 import { Product } from '../composables/catalogDataStore/types';
 const store = useCatalogStore();
 const listProduct = ref <Product[]>([]);
-const ferstRender = ref(true);
 const isMobile = ref(false);
 const showButton = ref(true);
+const page = ref(1);
 const filterList = computed(() => {
-    if(ferstRender.value) {
-        return isMobile.value ? listProduct.value.slice(0, 6) : listProduct.value
-    }
-    return listProduct.value;
-})
+    page.value = store.getPage;
+if (isMobile.value && page.value === 1) {
+    return listProduct.value.slice(0, 6);
+  }
+  return listProduct.value;
+});
 const resize = () => {
     isMobile.value = window.innerWidth <= 768;
 }
@@ -39,8 +40,8 @@ const resize = () => {
 
 
 const setNextPage = async() => {
-    store.setNextPage();
-    listProduct.value = [...listProduct.value, ...store.getCatalogData];
+    await store.setNextPage();   
+    listProduct.value = store.getCatalogData;;
 };
 
 onMounted(async() => {
