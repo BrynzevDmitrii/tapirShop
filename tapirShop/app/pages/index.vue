@@ -1,4 +1,5 @@
 <template>
+  <h1 class="title">Тестовое задание</h1>
    <BaseButton
      :buttonTag="ButtonTag.ANCHOR"
      :type="ButtonType.PRIMARY"
@@ -17,6 +18,20 @@ import { ButtonTag, ButtonType, ButtonVariant, ButtonTarget } from '~/shared/ui/
 
 </script>
 <style lang="scss" scoped>
+.title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 58px;
+  color: var(--default-black);
+  margin-bottom: 70px;
+
+  @media (min-width: 768px) {
+    font-size: 64px;
+    line-height: 70px;
+    margin-bottom: 60px;
+  }
+}
+
 .catalog-button {
   width: 120px;
   height: 40px;

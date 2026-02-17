@@ -26,7 +26,6 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   display: flex;  
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
   border: none;
   cursor: pointer;
   font-weight: 600;
