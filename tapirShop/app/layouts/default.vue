@@ -22,7 +22,6 @@ import { AppFooter } from '~/features/footer';
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 20px;

@@ -15,11 +15,11 @@ import { ref, onMounted } from 'vue';
     const menuList = [
         {
             title: 'Мужчинам',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Женщинам',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Каталог',
@@ -27,15 +27,15 @@ import { ref, onMounted } from 'vue';
         },
         {
             title: 'Доставка',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Блог',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'О нас',
-            link: '#'
+            link: 'javascript:void(0)'
         }
 
     ]

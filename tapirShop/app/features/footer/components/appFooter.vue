@@ -18,23 +18,23 @@ const footerList = [
     listItem: [
         {
             title: 'Все бренды',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Nike',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Adidas',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Puma',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'New Balance',
-            link: '#'
+            link: 'javascript:void(0)'
         }
     ]
     },
@@ -42,19 +42,19 @@ const footerList = [
       listItem: [
         {
             title: 'Доставка',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Заказ и оплата',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Обмен и Возврат',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'F.A.Q',
-            link: '#'
+            link: 'javascript:void(0)'
         }
     ]
     },
@@ -62,19 +62,19 @@ const footerList = [
        listItem: [
         {
             title: 'Преимущества',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Гарантия и безопасность',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Индивидуальный заказ',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Акции',
-            link: '#'
+            link: 'javascript:void(0)'
         }
     ]
     },
@@ -82,19 +82,19 @@ const footerList = [
       listItem: [
         {
             title: 'О нас',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Блог',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Отзывы',
-            link: '#'
+            link: 'javascript:void(0)'
         },
         {
             title: 'Контакты',
-            link: '#'
+            link: 'javascript:void(0)'
         }
     ]
     },

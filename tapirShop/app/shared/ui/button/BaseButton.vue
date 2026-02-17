@@ -4,10 +4,12 @@
     :class="['button', `button--${variant}`]"
     :style = "style"
     :disabled="disabled"
-    :href="href"
     role="button"
   >
+  <NuxtLink v-if="buttonTag === ButtonTag.ANCHOR" :to="href" :target="target">
     <slot />
+  </NuxtLink>
+    <slot v-else />
   </component>
 </template>
 <script setup lang="ts">
@@ -37,6 +39,12 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   &--contained {
     background-color: var(--default-red);
     color: var(--color-white);
+  }
+
+  &--outlined {
+    border: 1px solid var(--default-black);
+    color: var(--default-black);
+    background-color: transparent;
   }
 }
 </style>

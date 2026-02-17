@@ -7,7 +7,7 @@
      :disabled="false"
      :href="'/catalog'"
      :target="ButtonTarget.SELF"
-    class="catalog-button"
+      class="catalog-button"
    >
     В каталог
    </BaseButton>
