@@ -46,5 +46,10 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     color: var(--default-black);
     background-color: transparent;
   }
+
+  &--text {
+    color: var(--default-black);
+    background-color: transparent;
+  }
 }
 </style>

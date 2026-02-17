@@ -5,9 +5,11 @@ export const useCatalogStore = defineStore('catalog-store', () => {
 
     const countPage: Ref<number> = ref(1);
     const listProducts: Ref<Product[]> = ref([]);
+    const serverError: Ref<boolean> = ref(false);
 
     const setCatalogData = async () => {
         try {
+            // serverError.value = false;
             const response = await fetch(`https://test-task-api.tapir.ws/products?page=${countPage.value}&limit=10`);
             const newData = await response.json() as CatalogData;
             if (newData.currentPage > newData.totalPages) {
@@ -21,14 +23,15 @@ export const useCatalogStore = defineStore('catalog-store', () => {
             listProducts.value = [...listProducts.value, ...products];
 
         } catch (error) {
+            serverError.value = true;
             console.log(error);
         }
-    }
+    };
 
     const setNextPage = async () => {
         countPage.value++;
         await setCatalogData();
-    }
+    };
 
     const getCatalogData = computed(() => {
         return listProducts.value
@@ -36,7 +39,11 @@ export const useCatalogStore = defineStore('catalog-store', () => {
 
     const getPage = computed(() => {
         return countPage.value;
-    })
+    });
+
+    const getServerError = computed(() => {
+        return serverError.value;
+    });
 
     return {
         listProducts,
@@ -44,6 +51,7 @@ export const useCatalogStore = defineStore('catalog-store', () => {
         getCatalogData,
         setNextPage,
         getPage,
+        getServerError,
     }
 
 });
