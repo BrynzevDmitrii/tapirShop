@@ -91,7 +91,6 @@ const props = defineProps<{
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 74px;
             height: 18px;
             background-color: var(--default-black);
             padding: 4px;

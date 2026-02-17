@@ -1,3 +1,4 @@
+@forward "./font";
 *,
 *:before,
 *:after {
@@ -6,7 +7,7 @@
 
 body {
   margin: 0;
-  font-family: 'Golos-text',
+  font-family: 'Golos-text';
 }
 a {
   cursor: pointer;

@@ -107,6 +107,7 @@ onBeforeMount(() => {
         line-height: 20px;
         width: 114px;
         height: 40px;
+        background-color: transparent;
         @media (min-width: 768px) {
             margin: 100px auto;
         }
