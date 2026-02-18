@@ -6,7 +6,7 @@
         <div class="product-card__info">
             <div class="product-card__info--favorite">
                 <p class="product-card__info--price">{{ product.price }} {{ '\u20BD' }}</p>
-                <div class="product-card__info--line">{{product.price/2}} {{ '\u20BD' }}  &#x00D7;2</div>
+                <div class="product-card__info--line">{{Math.ceil(product.price / 2)}} {{ '\u20BD' }}  &#x00D7;2</div>
             </div>
             <p class="product-card__info--title">{{ product.name }}</p>
         </div>
