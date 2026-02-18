@@ -10,7 +10,6 @@
 import { BaseProductCard } from '~/shared/ui';
 import { useCatalogStore } from '../composables/catalogDataStore/useCatalogStore';
 import { computed, nextTick, onBeforeMount, onMounted, ref } from 'vue';
-import { Product } from '../composables/catalogDataStore/types';
 import { ButtonsSection } from '~/features/catalog';
  
 const store = useCatalogStore();

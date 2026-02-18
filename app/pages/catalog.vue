@@ -5,15 +5,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useFetch } from 'nuxt/app';
-import { onBeforeMount, onMounted, ref } from 'vue';
 import { AppCatalog } from '~/features/catalog';
-import { CatalogData, Product } from '~/features/catalog/composables/catalogDataStore/types';
 import { useCatalogStore } from '~/features/catalog/composables/catalogDataStore/useCatalogStore';
 
 const store = useCatalogStore();
 await store.setCatalogData();
-
 </script>
 <style lang="scss" scoped>
 .catalog-wrapper {

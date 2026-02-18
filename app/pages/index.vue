@@ -42,7 +42,6 @@ import { ButtonTag, ButtonType, ButtonVariant, ButtonTarget } from '~/shared/ui/
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  cursor: pointer;
   text-decoration: none;
 }
 </style>

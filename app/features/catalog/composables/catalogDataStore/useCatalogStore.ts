@@ -12,7 +12,7 @@ export const useCatalogStore = defineStore('catalog-store', () => {
     const setCatalogData = async () => {
         try {
 
-            const { data } = await useFetch('https://test-task-api.tapir.ws/products', {
+            const response: CatalogData = await $fetch('https://test-task-api.tapir.ws/products', {
                 method: 'get',
                 query: {
                     page: countPage.value,
@@ -20,15 +20,16 @@ export const useCatalogStore = defineStore('catalog-store', () => {
                 },
                 server: true,
             });
-            if (data.value.currentPage > data.value.totalPages) {
+
+            if (response.currentPage > response.totalPages) {
                 finishList.value = true;
                 return;
             }
             if (countPage.value === 1) {
-                listProducts.value = data.value.products;
+                listProducts.value = response.products;
                 return;
             }
-            const products = (data.value as CatalogData).products as Product[];
+            const products = response.products;
             listProducts.value = [...listProducts.value, ...products];
             serverError.value = false;
         } catch (error) {
