@@ -12,9 +12,9 @@ import { useCatalogStore } from '../composables/catalogDataStore/useCatalogStore
 import { computed, nextTick, onBeforeMount, onMounted, ref } from 'vue';
 import { Product } from '../composables/catalogDataStore/types';
 import { ButtonsSection } from '~/features/catalog';
-
+ 
 const store = useCatalogStore();
-const listProduct = ref <Product[]>([]);
+const listProduct = computed(() => store.getCatalogData);
 const isMobile = ref(false);
 const page = ref(1);
 const isLoading = ref(false);
@@ -32,14 +32,11 @@ const resize = () => {
 const setNextPage = async() => {
     isLoading.value = true;
     await store.setNextPage();   
-    listProduct.value = store.getCatalogData;
     await nextTick();
     isLoading.value = false;
 };
 
 onMounted(async() => {
-    await store.setCatalogData();
-    listProduct.value = store.getCatalogData;
     resize();
     window.addEventListener('resize', resize);
 });

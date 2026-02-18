@@ -1,3 +1,4 @@
+import { useFetch } from "nuxt/app";
 import { CatalogData, Product } from "./types";
 import { defineStore } from 'pinia';
 import { computed, Ref, ref } from 'vue';
@@ -10,17 +11,24 @@ export const useCatalogStore = defineStore('catalog-store', () => {
 
     const setCatalogData = async () => {
         try {
-            const response = await fetch(`https://test-task-api.tapir.ws/products?page=${countPage.value}&limit=10`);
-            const newData = await response.json() as CatalogData;
-            if (newData.currentPage > newData.totalPages) {
+
+            const { data } = await useFetch('https://test-task-api.tapir.ws/products', {
+                method: 'get',
+                query: {
+                    page: countPage.value,
+                    limit: 10
+                },
+                server: true,
+            });
+            if (data.value.currentPage > data.value.totalPages) {
                 finishList.value = true;
                 return;
             }
             if (countPage.value === 1) {
-                listProducts.value = newData.products;
+                listProducts.value = data.value.products;
                 return;
             }
-            const products = newData.products;
+            const products = (data.value as CatalogData).products as Product[];
             listProducts.value = [...listProducts.value, ...products];
             serverError.value = false;
         } catch (error) {
@@ -33,6 +41,10 @@ export const useCatalogStore = defineStore('catalog-store', () => {
         countPage.value++;
         await setCatalogData();
     };
+
+    const setListProducts = (products: Product[]) => {
+        listProducts.value = products;
+    }
 
     const getCatalogData = computed(() => {
         return listProducts.value
@@ -58,6 +70,6 @@ export const useCatalogStore = defineStore('catalog-store', () => {
         getPage,
         getServerError,
         getFinishList,
+        setListProducts
     }
-
 });

@@ -7,10 +7,17 @@
     "allowJs": true,
     "strict": true,
     "jsx": "preserve",
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
     "baseUrl": ".",
     "paths": {
-      "~/*": ["app/*"]
+      "~/*": [
+        "app/*"
+      ]
     }
   },
   "include": [
@@ -19,5 +26,8 @@
     "app/**/*.vue",
     "app/**/*.json",
   ],
-  "exclude": ["node_modules", "**/*.d.ts"]
+  "exclude": [
+    "node_modules",
+    "**/*.d.ts"
+  ]
 }
